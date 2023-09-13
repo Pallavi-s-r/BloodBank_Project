@@ -4,9 +4,9 @@ import { Link } from 'react-router-dom'
 import { handleLogin, handleRegister } from '../../../services/authservice'
 
 const Form = ({ submitBtn, formTitle, formType }) => {
+  const [role, setRole] = useState('donar')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
-  const [role, setRole] = useState('donar')
   const [name, setName] = useState('')
   const [organisationName, setOrganisationName] = useState('')
   const [hospitalName, setHospitalName] = useState('')
@@ -19,7 +19,7 @@ const Form = ({ submitBtn, formTitle, formType }) => {
       <form onSubmit={(e)=>{
         if(formType === 'login') return handleLogin(e, role,email,password)
 
-        else if(formType === 'register') return handleRegister(e, name, role, email, password, organisationName, hospitalName, address, website, phone)
+        else if(formType === 'register') return handleRegister(e, role,name, email, password, organisationName, hospitalName, address, website, phone)
 
       }}>
         <h1 className='text-center'>{formTitle}</h1>

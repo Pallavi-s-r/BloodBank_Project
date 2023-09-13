@@ -6,7 +6,7 @@ const Register = () => {
     <>
     <div className='row g-0'>
       <div className='col-md-7 form-banner'>
-        <img src='./assests/img2.jpg' alt='register image' />
+        <img src='./assests/img2.jpg' alt='register' />
       </div>
 
       <div className='col-md-5 form-container'>

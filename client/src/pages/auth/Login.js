@@ -8,7 +8,7 @@ const Login = () => {
         <>
             <div className='row g-0'>
                 <div className='col-md-7 form-banner'>
-                    <img src='./assests/img3.jpg' alt='login image' />
+                    <img src='./assests/img3.jpg' alt='login' />
                 </div>
                 <div className='col-md-5 form-container'>
                   {/* <form>
