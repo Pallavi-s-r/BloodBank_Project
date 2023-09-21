@@ -15,7 +15,7 @@ const ProtectedRoute = ({children}) => {
           dispatch(getCurrentUser(data))
         }
       }catch(error){
-        // localStorage.clear()
+        localStorage.clear()
         console.log(error)
       }
     }
@@ -23,6 +23,7 @@ const ProtectedRoute = ({children}) => {
     useEffect(() => {
       getUser()
     })
+    
  if(localStorage.getItem('token')){
   return children
  }else{

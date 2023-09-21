@@ -30,10 +30,10 @@ export const userLogin = createAsyncThunk(
 
 //register
 
-export const userRegister = createAsyncThunk('auth/register', async({email,password,name, role, organasiationName, hospitalName, phone, website, address},{rejectWithValue})=>{
+export const userRegister = createAsyncThunk('auth/register', async({ role,name,email,password, organasiationName, hospitalName,  website, address, phone},{rejectWithValue})=>{
 try{
     const {data} = await API.post('/auth/register',{
-        name, role, email, password,organasiationName, hospitalName, phone, website, address 
+       role,name,email,password, organasiationName, hospitalName,  website, address, phone 
     })
     if(data?.success){
         alert("user registered")
@@ -53,7 +53,7 @@ try{
 
 //current user
 export const getCurrentUser = createAsyncThunk(
-    'auth/getCurrentUser', 
+    'auth/currentUser', 
     async({rejectWithValue})=>{
 try{
 

@@ -23,7 +23,7 @@ export const handleLogin = (e, role, email, password) =>{
 export const handleRegister = (e, role, name, email, password, organisationName, hospitalName, address, website, phone) => {
   e.preventDefault();
   try {
-    if (!role || !name || !email || !password) {
+    if (!role  || !email || !password) {
       alert('Please provide all fields');
       return;
     }
@@ -46,6 +46,11 @@ export const handleRegister = (e, role, name, email, password, organisationName,
       website,
       phone
     }));
+     console.log('register', e, email, role, password, name,  organisationName,
+      hospitalName,
+      address,
+      website,
+      phone)
   } catch (error) {
     console.log(error);
   }

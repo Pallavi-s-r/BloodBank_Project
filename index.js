@@ -19,7 +19,9 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 
 mongoose.connect(process.env.MONGO_URL, {
-    useNewUrlParser: true
+    useNewUrlParser: true,
+     useUnifiedTopology: true,
+  serverSelectionTimeoutMS: 10000
 })
 .then( () => console.log("MongoDb is connected"))
 .catch ( err => console.log(err) )

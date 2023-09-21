@@ -16,5 +16,8 @@ router.get('/auth/currentUser', authMiddleware, userCntrl.currentUser)
 //inventory api
 router.post('/inventory/create-inventory', authMiddleware, inventCntrl.addInventory)
 router.get('/inventory/bloodRecords', authMiddleware,inventCntrl.bloodRecord)
+router.get('/inventory/getDonar', authMiddleware,inventCntrl.getDonar)
+router.get('/inventory/getHospital', authMiddleware,inventCntrl.getHospital)
+router.get('/inventory/getOrg', authMiddleware,inventCntrl.getOrg)
 
 module.exports = router 
