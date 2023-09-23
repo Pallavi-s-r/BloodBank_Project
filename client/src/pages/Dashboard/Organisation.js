@@ -2,20 +2,37 @@ import React , {useEffect, useState}from 'react'
 import Layout from '../../components/shared/Layout/LAyout'
 import API from '../../services/api'
 import moment from 'moment';
+import { useSelector } from 'react-redux';
 
 
+// NEED TO DEBUG THIS PAGE
 const Organisation = () => {
+  //get current user
+  const {user} = useSelector((state)=>state.auth)
 
   const [data, setData] = useState([]);
+
   //find Organisation records
   const getOrg = async() =>{
   try{
-    const {data} = await API.get('/inventory/getOrg')
+
+    if(user?.role === 'donar'){
+          const {data} = await API.get('/inventory/getOrg')
     //  console.log(data)
     if(data?.success){
       
     setData(data?.organisations);
     }
+
+    }
+   if(user?.role === 'hospital'){
+          const {data} = await API.get('/inventory/getOrg-forHospital')
+    
+    if(data?.success){ 
+      //  console.log(data)
+  setData(data?.organisations);
+    }
+   }
 
   }catch(error){
     console.log(error)
@@ -23,7 +40,7 @@ const Organisation = () => {
   }
   useEffect(() => {
     getOrg();
-  },[]);
+  },[user]);
 
   
   return (
@@ -51,6 +68,7 @@ const Organisation = () => {
                       <td>
                         {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}
                       </td>
+
                     </tr>
                   ))}
 

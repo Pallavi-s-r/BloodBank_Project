@@ -10,6 +10,9 @@ import PublicRoute from './components/Routes/PublicRoute';
 import Donar from './pages/Dashboard/Donar';
 import Hospital from './pages/Dashboard/Hospital';
 import Organisation from './pages/Dashboard/Organisation';
+import Consumer from './pages/Dashboard/Consumer';
+import Donation from './pages/Dashboard/Donation';
+import Analytics from './pages/Dashboard/Analytics';
 
 
 function App() {
@@ -31,9 +34,22 @@ function App() {
     <Route path='/hospital' element={
   <ProtectedRoute><Hospital/></ProtectedRoute> }
     />
+
+    <Route path='/analytics' element={
+  <ProtectedRoute><Analytics/></ProtectedRoute> }
+    />
+
     <Route path='/organisation' element={
   <ProtectedRoute><Organisation/></ProtectedRoute> }
     />
+    <Route path='/consumer' element={
+  <ProtectedRoute><Consumer/></ProtectedRoute> }
+    />
+
+     <Route path='/donation' element={
+  <ProtectedRoute><Donation/></ProtectedRoute> }
+    />
+
     < Route path='/login' element={
    <PublicRoute> <Login/></PublicRoute>
    }/>
