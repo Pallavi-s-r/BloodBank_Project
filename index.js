@@ -4,7 +4,7 @@ const route = require('./routes/route');
 const dotenv = require('dotenv');
 const morgan = require('morgan');
 const cors = require('cors');
-
+const path = require('path');
 
 dotenv.config();
 
@@ -28,6 +28,13 @@ mongoose.connect(process.env.MONGO_URL, {
 
 app.use('/api/v1', route);
 
+//static file
+app.use(express.static(path.join(__dirname,'./client/build')))
+
+//static route
+app.get('*',function(req,res){
+    res.sendFile(path.join(__dirname,'./client/build/index.html'))
+})
 app.listen(process.env.PORT , function () {
     console.log(`Express app running ${process.env.DEV_MODE} Modeon port`  + (process.env.PORT ))
 });

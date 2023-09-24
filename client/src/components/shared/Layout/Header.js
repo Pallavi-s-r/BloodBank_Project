@@ -31,8 +31,8 @@ const handleLogout = () => {
 
 
     {
-        location.pathname === '/' ? (
-      <li className='nav-item'>
+       ( location.pathname === '/' || location.pathname === '/donar' || location.pathname === '/hospital') ? (
+      <li className='nav-item mx-3'>
     <Link to='/analytics' className='nav-link'>
       Analytics
     </Link>

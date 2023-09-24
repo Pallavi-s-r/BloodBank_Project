@@ -5,11 +5,12 @@ import Layout from '../components/shared/Layout/LAyout.js'
 import Modal from '../components/shared/Modal/Modal'
 import API from '../services/api'
 import moment from "moment";
+import { useNavigate } from 'react-router-dom'
 
 
 const HomePage = () => {
-  const { loading, error } = useSelector(state => state.auth)
-
+  const { loading, error , user} = useSelector(state => state.auth)
+const navigate = useNavigate()
   const [data, setData] = useState([])
 
   //get function
@@ -31,6 +32,7 @@ const HomePage = () => {
 
   return (
     <Layout>
+      {user?.role === 'admin' && navigate('/admin')}
       {error && <span>{alert(error)}</span>}
       {loading ? <Spinner /> :
         (

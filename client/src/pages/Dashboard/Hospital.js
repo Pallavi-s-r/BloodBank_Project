@@ -1,7 +1,8 @@
 import React , {useEffect, useState}from 'react'
 import Layout from '../../components/shared/Layout/LAyout'
-import API from '../../services/api'
+
 import moment from 'moment';
+import API from '../../services/api.js';
 
 
 const Hospital = () => {

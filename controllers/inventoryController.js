@@ -265,4 +265,27 @@ const getIventoryHospitalController = async (req, res) => {
         });
     }
 }
-module.exports = {addInventory, bloodRecord , getDonar , getHospital, getOrg, getOrgforHospital , getIventoryHospitalController} 
+
+//get blood records of 3 (analyitc pg)
+
+const getRecentInventory  = async(req,res) =>{
+  try{
+const inventory = await inventoryModel.findOne({
+  organisation: req.body.userId
+}).limit(3).sort({createdAt: -1})
+
+return res.status(200).send({
+  success:true,
+  message: 'recent inventory data',
+  inventory
+})
+  }catch (error) {
+        console.log(error);
+        res.status(500).send({
+            success: false,
+            message: 'Error fetching in recent inventory details',
+            error
+        });
+    }
+}
+module.exports = {addInventory, bloodRecord , getDonar , getHospital, getOrg, getOrgforHospital , getIventoryHospitalController , getRecentInventory} 
