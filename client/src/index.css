@@ -2,7 +2,7 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* overflow: hidden; */
+  overflow: hidden;
 }
 
 /* form */
@@ -51,12 +51,12 @@
 /* =====navbar===== */
 
 .navbar {
-  background-color: black !important;
+  background-color: #0D47A1 !important;
   color: white !important;
 }
 
 .nav-link,
 .navbar-brand {
-  background-color: black !important;
+  background-color: #0D47A1 !important;
   color: white !important;
 }

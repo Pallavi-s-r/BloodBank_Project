@@ -4,7 +4,7 @@ import Spinner from '../../components/shared/form/spinner'
 import { useSelector } from 'react-redux'
 
 const Register = () => {
-  const {loading, error} = useSelector(state =>state.auth)
+  const {loading, error} = useSelector((state) =>state.auth)
   return (
     <>
      {error && <span>{alert(error)}</span>}

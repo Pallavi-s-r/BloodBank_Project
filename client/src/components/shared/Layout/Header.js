@@ -32,7 +32,7 @@ const handleLogout = () => {
 
     {
        ( location.pathname === '/' || location.pathname === '/donar' || location.pathname === '/hospital') ? (
-      <li className='nav-item mx-3'>
+      <li className='nav-item '>
     <Link to='/analytics' className='nav-link'>
       Analytics
     </Link>
@@ -47,7 +47,7 @@ const handleLogout = () => {
     }
 
 
-<li className='nav-item'>
+<li className='nav-item '>
     <button className='btn btn-danger' onClick={handleLogout}>
         Logout
     </button>

@@ -30,10 +30,10 @@ export const userLogin = createAsyncThunk(
 
 //register
 
-export const userRegister = createAsyncThunk('auth/register', async({ role,name,email,password, organasiationName, hospitalName,  website, address, phone},{rejectWithValue})=>{
+export const userRegister = createAsyncThunk('auth/register', async({ role,name,email,password, organisationName, hospitalName,  website, address, phone},{rejectWithValue})=>{
 try{
     const {data} = await API.post('/auth/register',{
-       role,name,email,password, organasiationName, hospitalName,  website, address, phone 
+       role,name,email,password, organisationName, hospitalName,  website, address, phone 
     })
     if(data?.success){
         alert("user registered")

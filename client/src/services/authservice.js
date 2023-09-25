@@ -12,46 +12,46 @@ export const handleLogin = (e, role, email, password) =>{
         console.log(error);
     }
 }
-// export const handleRegister = (e,role,name,email, password,organisationName,hospitalName,address,website, phone) =>{
-//   e.preventDefault();
-//     try{
-//       store.dispatch(userRegister({role,name,email, password,organisationName,hospitalName,address,website, phone}))
-//     }catch(error){
-//         console.log(error);
-//     }
-// }
-export const handleRegister = (e, role, name, email, password, organisationName, hospitalName, address, website, phone) => {
+export const handleRegister = (e,role,name,email, password, organisationName,hospitalName,address,website, phone) =>{
   e.preventDefault();
-  try {
-    if (!role  || !email || !password) {
-      alert('Please provide all fields');
-      return;
+    try{
+      store.dispatch(userRegister({role,name,email, password,organisationName,hospitalName,address,website, phone}))
+    }catch(error){
+        console.log(error);
     }
-
-    // Make sure 'role' is one of the valid values: "admin", "organisation", "donar", or "hospital"
-    const validRoles = ["admin", "organisation", "donar", "hospital"];
-    if (!validRoles.includes(role)) {
-      alert('Invalid role');
-      return;
-    }
-
-    store.dispatch(userRegister({
-      role,
-      name,
-      email,
-      password,
-      organisationName,
-      hospitalName,
-      address,
-      website,
-      phone
-    }));
-     console.log('register', e, email, role, password, name,  organisationName,
-      hospitalName,
-      address,
-      website,
-      phone)
-  } catch (error) {
-    console.log(error);
-  }
 }
+// export const handleRegister = (e, role, name, email, password, organisationName, hospitalName, address, website, phone) => {
+//   e.preventDefault();
+//   try {
+//     if (!role  || !email || !password) {
+//       alert('Please provide all fields');
+//       return;
+//     }
+
+//     // Make sure 'role' is one of the valid values: "admin", "organisation", "donar", or "hospital"
+//     const validRoles = ["admin", "organisation", "donar", "hospital"];
+//     if (!validRoles.includes(role)) {
+//       alert('Invalid role');
+//       return;
+//     }
+
+//     store.dispatch(userRegister({
+//       role,
+//       name,
+//       email,
+//       password,
+//       organisationName,
+//       hospitalName,
+//       address,
+//       website,
+//       phone
+//     }));
+//      console.log('register', e, email, role, password, name,  organisationName,
+//       hospitalName,
+//       address,
+//       website,
+//       phone)
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
