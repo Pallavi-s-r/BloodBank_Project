@@ -49,7 +49,7 @@ const Hospital = () => {
                       <td>{record.address}</td>
                     
                       <td>
-                        {moment(record.createdAt).format("DD/MM/YYYY hh:mm A")}
+                        {moment(record.createdAt).format("DD/MM/YYYY")}
                       </td>
                     </tr>
                   ))}

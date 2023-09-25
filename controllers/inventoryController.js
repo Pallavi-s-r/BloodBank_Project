@@ -140,36 +140,6 @@ return res.status(200).send({
     }
 }
 
-
-// const getHospital = async(req,res)=>{
-//  try{
-//   const organisation = req.body.userId;
-
-//   //get hospiyal id
-//   const hospitalId = await inventoryModel.distinct('hospital',{organisation})
-// console.log(hospitalId)
-//   //find hospital
-//   const hospital = await userModel.find({
-//     _id:{$in: hospitalId}
-//   });
-//   console.log(hospital);
-//   return res.status(200).send({
-//     success: true,
-//     message: 'Hospital details fetched successfully',
-//     hospital
-//   })
-
-//  }catch(error){
-//     console.log(error);
-//         res.status(500).send({
-//             success: false,
-//             message: 'Error fetching hospital details',
-//             error
-//         });
-//  }
-
-// }
-
 const getHospital = async (req, res) => {
   try {
     const organisation = req.body.userId;
@@ -222,24 +192,34 @@ const getOrg = async (req, res) => {
   }
 }
 
+
 const getOrgforHospital = async (req, res) => {
-  try{
-    //if hospital then  will display org page
-    const hospital = req.body.userId
-    const orgId = await inventoryModel.distinct('organisation', {hospital})
-    
-    //find org
-    const organisations = await userModel.find({_id:{$in:orgId}})
+  try {
+    const hospitalId = req.body.userId;
+
+    // Check if the logged-in user is a hospital
+    const hospital = await userModel.findOne({ _id: hospitalId, role: 'hospital' });
+
+    if (!hospital) {
+      return res.status(400).send({
+        success: false,
+        message: 'User is not a hospital',
+      });
+    }
+
+    // Find organizations
+    const organisations = await userModel.find({ role: 'organisation' });
+console.log(organisations)
     return res.status(200).send({
       success: true,
-      message: "Hospitals Data Fetched Successfully",
+      message: 'Organizations Data Fetched Successfully',
       organisations,
     });
   } catch (error) {
     console.log(error);
     return res.status(500).send({
       success: false,
-      message: "Error In get Org hospital API",
+      message: 'Error In get Org API',
       error,
     });
   }
