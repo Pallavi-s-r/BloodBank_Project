@@ -36,5 +36,5 @@ app.get('*',function(req,res){
     res.sendFile(path.join(__dirname,'./client/build/index.html'))
 })
 app.listen(process.env.PORT , function () {
-    console.log(`Express app running ${process.env.DEV_MODE} Modeon port`  + (process.env.PORT ))
+    console.log(`Express app running on port`  + (process.env.PORT ))
 });

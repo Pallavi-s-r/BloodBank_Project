@@ -167,7 +167,7 @@ const getHospital = async (req, res) => {
 };
 
 
-//get org
+//get org for donars
 
 const getOrg = async (req, res) => {
   try{
@@ -179,7 +179,7 @@ const getOrg = async (req, res) => {
     const organisations = await userModel.find({_id:{$in:orgId}})
     return res.status(200).send({
       success: true,
-      message: "Hospitals Data Fetched Successfully",
+      message: "Organisation Data Fetched Successfully",
       organisations,
     });
   } catch (error) {

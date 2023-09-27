@@ -32,7 +32,7 @@ const Donar = () => {
                     <th scope="col">Email</th>
                     <th scope="col">Phone</th>
                     <th scope="col">Date</th>
-                    {/* <th scope="col">Time & Date</th> */}
+                    
                   </tr>
                 </thead>
                 <tbody>
